@@ -3,6 +3,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
+  const [bgNav, setBgNav] = useState('bg-gray-900');
   const dropdownList = [
     {text: 'Internet', href: '/internet'},
     {text: 'Books', href: '/books'},
@@ -20,8 +21,18 @@ const Navbar = () => {
     })
   }, [])
 
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 0) {
+        setBgNav('bg-gray-900/70 backdrop-blur-md border-b border-gray-600');
+      } else {
+        setBgNav('bg-gray-900')
+      }
+    })
+  },[])
+
   return (
-    <nav className='py-8'>
+    <nav className={`py-8 sticky top-0 z-50 ${bgNav}`}>
       <div className="container">
         <div className="flex items-center justify-between">
           <div className='left-side flex items-center'>

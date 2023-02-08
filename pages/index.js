@@ -15,10 +15,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className='bg-gray-900 text-gray-50 min-h-screen'>
-        <Navbar />
+        <div className='flex flex-col'>
+          <Navbar />
 
-        <div className="container">
-          <FeaturedPost />
+          <div className="container">
+            <FeaturedPost />
+          </div>
         </div>
       </main>
     </>
