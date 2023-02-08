@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Navbar from '@/components/Navbar'
+import FeaturedPost from '@/components/FeaturedPost'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,6 +16,10 @@ export default function Home() {
       </Head>
       <main className='bg-gray-900 text-gray-50 min-h-screen'>
         <Navbar />
+
+        <div className="container">
+          <FeaturedPost />
+        </div>
       </main>
     </>
   )

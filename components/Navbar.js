@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -38,15 +38,15 @@ const Navbar = () => {
                 </li>
                 <li className='relative'>
                   <button
-                    className="nav-link"
+                    className="nav-link outline-none"
                     onClick={() => setDropdown(!dropdown)}
                   >
                     Lainnya
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className={`bi bi-chevron-down transition-all duration-300 ${!dropdown && 'rotate-180'}`} viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className={`bi bi-chevron-down transition-all duration-300 ${dropdown && 'rotate-180'}`} viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
                     </svg>
                   </button>
-                  <ul className={`absolute transition-all duration-300 visible translate-y-0 opacity-100 ${dropdown && 'invisible translate-y-20 opacity-0'} overflow-hidden rounded-lg w-52 bg-gray-800 shadow-xl mt-3`}>
+                  <ul className={`absolute transition-all duration-300 visible translate-y-0 opacity-100 ${!dropdown && 'invisible translate-y-20 opacity-0'} overflow-hidden rounded-lg w-52 bg-gray-800 shadow-xl mt-3`}>
                     {dropdownList.map((list) => (
                       <li key={list.text}>
                         <Link
