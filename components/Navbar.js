@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Container from "./Container";
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [bgNav, setBgNav] = useState('bg-gray-900');
   const dropdownList = [
-    {text: 'Internet', href: '/internet'},
-    {text: 'Books', href: '/books'},
-    {text: 'Open Source', href: '/open-source'},
+    { text: 'Internet', href: '/internet' },
+    { text: 'Books', href: '/books' },
+    { text: 'Open Source', href: '/open-source' },
   ]
 
   const menuRef = useRef();
@@ -15,7 +16,7 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener('click', (e) => {
-      if(e.target !== menuRef.current && e.target !== buttonDropdownRef.current) {
+      if (e.target !== menuRef.current && e.target !== buttonDropdownRef.current) {
         setDropdown(false);
       }
     })
@@ -23,17 +24,17 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if(window.scrollY > 0) {
+      if (window.scrollY > 0) {
         setBgNav('bg-gray-900/70 backdrop-blur-md border-b border-gray-600');
       } else {
         setBgNav('bg-gray-900')
       }
     })
-  },[])
+  }, [])
 
   return (
     <nav className={`py-8 sticky top-0 z-50 ${bgNav}`}>
-      <div className="container">
+      <Container>
         <div className="flex items-center justify-between">
           <div className='left-side flex items-center'>
             <div className='logo mr-8'>
@@ -95,7 +96,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </nav>
   );
 };

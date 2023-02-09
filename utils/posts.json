@@ -1,0 +1,42 @@
+[
+  {
+    "thumbnail": "/thumbnail-2.png",
+    "category": "Internet",
+    "date": "8 Feb 2023",
+    "title": "Title of Blog",
+    "shortDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio similique odit perspiciatis alias, nesciunt fuga architecto omnis doloribus autem.",
+    "authorName": "M. Fahrur Rizal"
+  },
+  {
+    "thumbnail": "/thumbnail-4.png",
+    "category": "Internet",
+    "date": "8 Feb 2023",
+    "title": "Title of Blog",
+    "shortDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio similique odit perspiciatis alias, nesciunt fuga architecto omnis doloribus autem.",
+    "authorName": "M. Fahrur Rizal"
+  },
+  {
+    "thumbnail": "/thumbnail-3.png",
+    "category": "Internet",
+    "date": "8 Feb 2023",
+    "title": "Title of Blog",
+    "shortDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio similique odit perspiciatis alias, nesciunt fuga architecto omnis doloribus autem.",
+    "authorName": "M. Fahrur Rizal"
+  },
+  {
+    "thumbnail": "/thumbnail-3.png",
+    "category": "Internet",
+    "date": "8 Feb 2023",
+    "title": "Title of Blog",
+    "shortDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio similique odit perspiciatis alias, nesciunt fuga architecto omnis doloribus autem.",
+    "authorName": "M. Fahrur Rizal"
+  },
+  {
+    "thumbnail": "/thumbnail-3.png",
+    "category": "Internet",
+    "date": "8 Feb 2023",
+    "title": "Title of Blog",
+    "shortDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio similique odit perspiciatis alias, nesciunt fuga architecto omnis doloribus autem.",
+    "authorName": "M. Fahrur Rizal"
+  }
+]
