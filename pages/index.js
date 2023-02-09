@@ -2,10 +2,56 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Navbar from '@/components/Navbar'
 import FeaturedPost from '@/components/FeaturedPost'
+import CardPost from '@/components/CardPost'
+import { useState } from 'react'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [posts, setPosts] = useState([
+    {
+      thumbnail: '/thumbnail-2.png',
+      category: 'Internet',
+      date: '8 Feb 2023',
+      title: 'Title of Blog',
+      shortDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio similique odit perspiciatis alias, nesciunt fuga architecto omnis doloribus autem.',
+      authorName: 'M. Fahrur Rizal'
+    },
+    {
+      thumbnail: '/thumbnail-4.png',
+      category: 'Internet',
+      date: '8 Feb 2023',
+      title: 'Title of Blog',
+      shortDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio similique odit perspiciatis alias, nesciunt fuga architecto omnis doloribus autem.',
+      authorName: 'M. Fahrur Rizal'
+    },
+    {
+      thumbnail: '/thumbnail-3.png',
+      category: 'Internet',
+      date: '8 Feb 2023',
+      title: 'Title of Blog',
+      shortDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio similique odit perspiciatis alias, nesciunt fuga architecto omnis doloribus autem.',
+      authorName: 'M. Fahrur Rizal'
+    },
+    {
+      thumbnail: '/thumbnail-3.png',
+      category: 'Internet',
+      date: '8 Feb 2023',
+      title: 'Title of Blog',
+      shortDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio similique odit perspiciatis alias, nesciunt fuga architecto omnis doloribus autem.',
+      authorName: 'M. Fahrur Rizal'
+    },
+    {
+      thumbnail: '/thumbnail-3.png',
+      category: 'Internet',
+      date: '8 Feb 2023',
+      title: 'Title of Blog',
+      shortDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum optio similique odit perspiciatis alias, nesciunt fuga architecto omnis doloribus autem.',
+      authorName: 'M. Fahrur Rizal'
+    },
+  ])
+
   return (
     <>
       <Head>
@@ -20,6 +66,11 @@ export default function Home() {
 
           <div className="container">
             <FeaturedPost />
+            <div className='grid grid-cols-3 gap-8 my-8'>
+            {posts.map((post, i) => (
+              <CardPost key={i} {...post} />
+            ))}
+            </div>
           </div>
         </div>
       </main>
