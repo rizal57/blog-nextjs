@@ -4,17 +4,13 @@ import RootLayout from '@/components/layouts/RootLayout';
 import MetaPostTitle from '@/components/MetaPostTitle';
 import PostParagraph from '@/components/PostParagraph';
 import Head from 'next/head';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 const index = () => {
-  const router = useRouter();
-  const {slug} = router.query;
-
   return (
     <>
       <Head>
-        <title>Post | {slug}</title>
+        <title>Post | Detail</title>
       </Head>
       <RootLayout>
         <Container>
