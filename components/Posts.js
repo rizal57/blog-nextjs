@@ -8,7 +8,7 @@ const Posts = () => {
   return (
     <>
       {posts.length ? (
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8 py-4 lg:py-8'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 lg:gap-8 py-4 lg:py-8'>
           {posts.map((post, i) => (
             <CardPost key={i} {...post} />
           ))}

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Container from '@/components/Container';
 import RootLayout from '@/components/layouts/RootLayout';
 import MetaPostTitle from '@/components/MetaPostTitle';
@@ -17,26 +18,22 @@ const index = () => {
       </Head>
       <RootLayout>
         <Container>
-          <div className='flex flex-col items-center py-8'>
+          <div className='flex flex-col items-center lg:py-8'>
             <MetaPostTitle
-              className={`text-4xl font-extrabold mb-4 w-6/12`}
+              className={`md:text-4xl text-2xl font-extrabold lg:mb-8 mb-4 md:w-6/12 w-full`}
               title={'Title of blog detail'}
               authorName={'M. Fahrur Rizal'}
               date={'10 Feb 2023'}
               center
             />
-            <div className='relative h-screen w-full lg:w-10/12 mb-8'>
-              <Image
+            <div className='relative h-auto w-full md:w-10/12 lg:mb-8 mb-4 overflow-hidden rounded-lg'>
+              <img
                 src={'/featured-thumbnail.png'}
                 alt='image'
-                fill
-                sizes="(max-width: 768px) 100vw,
-                        (max-width: 1200px) 50vw,
-                        33vw"
-                className='rounded-lg'
+                className='rounded-lg w-full object-cover'
               />
             </div>
-            <div className='w-full lg:w-10/12'>
+            <div className='w-full md:w-10/12'>
               <PostParagraph>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium itaque voluptates possimus reprehenderit nemo, sapiente porro ratione magnam illo quisquam?
               </PostParagraph>

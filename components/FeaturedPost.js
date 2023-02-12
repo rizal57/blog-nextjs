@@ -5,8 +5,8 @@ import InfoFeaturedPost from './InfoFeaturedPost';
 const FeaturedPost = () => {
   return (
     <article>
-      <div className="flex flex-col py-8">
-        <div className='flex flex-col justify-center items-center mb-16'>
+      <div className="flex flex-col lg:py-8 py-4">
+        <div className='flex flex-col justify-center items-center lg:mb-16 mb-4'>
           <h2 className='text-lg lg:text-xl font-semibold'>The Blog</h2>
           <h1 className='text-2xl lg:text-6xl font-semibold capitalize'>Writings from our team</h1>
         </div>

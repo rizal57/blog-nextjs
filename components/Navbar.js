@@ -1,18 +1,31 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Container from "./Container";
+import { HiMenuAlt1, HiSearch } from 'react-icons/hi';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 const Navbar = () => {
   const [dropdown, setDropdown] = useState(false);
   const [bgNav, setBgNav] = useState('bg-gray-900');
+  const [open, setOpen] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
+
+  const menuRef = useRef();
+  const buttonDropdownRef = useRef();
+
   const dropdownList = [
     { text: 'Internet', href: '/internet' },
     { text: 'Books', href: '/books' },
     { text: 'Open Source', href: '/open-source' },
   ]
 
-  const menuRef = useRef();
-  const buttonDropdownRef = useRef();
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [open])
 
   useEffect(() => {
     window.addEventListener('click', (e) => {
@@ -33,36 +46,41 @@ const Navbar = () => {
   }, [])
 
   return (
-    <nav className={`py-8 sticky top-0 z-50 ${bgNav}`}>
+    <nav className={`h-20 flex items-center sticky top-0 z-50 ${bgNav}`}>
       <Container>
         <div className="flex items-center justify-between">
-          <div className='left-side flex items-center'>
-            <div className='logo mr-8'>
-              <div className='w-10 h-10 font-bold rounded-full bg-gray-600 flex items-center justify-center shadow-2xl shadow-gray-700'>
-                B
-              </div>
-            </div>
-            <div>
-              <ul className='flex items-center gap-8'>
+          <button className="lg:hidden" onClick={() => setOpen(true)}>
+            <HiMenuAlt1 className="w-6 h-6" />
+          </button>
+          <div className='flex items-center justify-center'>
+            <Link href={'/'} className='w-10 h-10 lg:mr-8 font-bold rounded-full bg-gray-600 flex items-center justify-center shadow-2xl shadow-gray-700'>
+              B
+            </Link>
+            <div className={`lg:bg-transparent bg-gray-900 lg:static absolute ${open ? 'left-0' : '-left-full'} lg:w-auto w-full top-0 lg:h-auto h-screen lg:py-0 py-16 lg:pl-0 pl-10 transition-all duration-300`}>
+              <button className="absolute top-8 right-8 lg:hidden" onClick={() => setOpen(false)}>
+                <AiOutlineCloseCircle className="w-7 h-7" />
+              </button>
+
+              <ul className='flex flex-col lg:flex-row lg:items-center gap-8'>
                 <li>
-                  <a href='#' className="nav-link">
+                  <Link href='/posts' className="nav-link">
                     UI Design
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='#' className="nav-link">
+                  <Link href='/posts' className="nav-link">
                     Front End
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='#' className="nav-link">
+                  <Link href='/posts' className="nav-link">
                     Back End
-                  </a>
+                  </Link>
                 </li>
                 <li className='relative'>
                   <button
                     ref={buttonDropdownRef}
-                    className="nav-link outline-none"
+                    className="nav-link outline-none w-full"
                     onClick={() => setDropdown(!dropdown)}
                   >
                     Lainnya
@@ -74,7 +92,7 @@ const Navbar = () => {
                     {dropdownList.map((list) => (
                       <li key={list.text}>
                         <Link
-                          href={list.href}
+                          href={`/posts/${list.href}`}
                           className='flex items-center transition-all duration-300 cursor-pointer py-3 px-6 hover:bg-gray-700 border-b border-b-gray-700 last:border-none'
                         >
                           {list.text}
@@ -88,9 +106,15 @@ const Navbar = () => {
           </div>
           <div className='right-side'>
             <div className="search">
+              <button
+                className="lg:hidden"
+                onClick={() => setOpenSearch(!openSearch)}
+              >
+                { openSearch ? <AiOutlineCloseCircle className="w-7 h-7" /> : <HiSearch className="w-6 h-6" /> }
+              </button>
               <input
                 type="text"
-                className='py-1 px-4 pl-9 rounded-full bg-gray-800 placeholder:text-gray-600 bg-search outline-none focus:outline-gray-500 duration-300'
+                className={`${openSearch ? 'visible top-[86px] shadow-lg' : 'lg:visible invisible -top-full'} lg:static absolute left-1/2 lg:translate-x-0 -translate-x-1/2 w-10/12 lg:w-64 h-10 lg:block py-1 px-4 pl-9 rounded-full bg-gray-800 placeholder:text-gray-600 bg-search outline-none focus:outline-gray-500 transition-all duration-300`}
                 placeholder='Search...'
               />
             </div>
